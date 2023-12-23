@@ -13,12 +13,13 @@ public class CubeSpawner : MonoBehaviour
     public float colorChangeInterval = 0.2f;
     public float colorChangeDuration = 0.5f;
     
+    
     private void Start()
     {
         StartCoroutine(SpawnCubes());
     }
 
-    IEnumerator SpawnCubes()
+    private IEnumerator SpawnCubes()
     {
         
         float startX = -40f;
@@ -40,7 +41,7 @@ public class CubeSpawner : MonoBehaviour
         StartCoroutine(ChangeColorsCoroutine());
     }
 
-    IEnumerator ChangeColorsCoroutine()
+    private IEnumerator ChangeColorsCoroutine()
     {
         var newColor = GetRandomColor();
 
@@ -51,10 +52,10 @@ public class CubeSpawner : MonoBehaviour
         }
     }
 
-    IEnumerator ChangeColor(GameObject cube, Color newColor)
+    private IEnumerator ChangeColor(GameObject cube, Color newColor)
     {
-        Material cubeMaterial = cube.GetComponent<Renderer>().material;
-        Color startColor = cubeMaterial.color;
+        var cubeMaterial = cube.GetComponent<Renderer>().material;
+        var startColor = cubeMaterial.color;
 
         float elapsedTime = 0f;
 
